@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Elements with Video Background</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Fullscreen video background */
+        .video-background {
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure it stays behind the content */
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Section Styling */
+        .ui-elements {
+            text-align: center;
+            padding: 2em;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        /* Card Container */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card-icon img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .pink { background-color: #ff4081; }
+        .blue { background-color: #2196f3; }
+        .yellow { background-color: #ffc107; }
+        .green { background-color: #4caf50; }
+        .purple { background-color: #9c27b0; }
+        .red { background-color: #f44336; }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .modal-header {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .modal-body {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .modal-footer {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop class="video-background">
+    <source src="loop1.mp4" type="video/mp4">
+    <!-- Fallback text for unsupported browsers -->
+    Your browser does not support the video tag.
+</video>
+
+<section class="ui-elements">
+    <h1>COURSES OFFERED</h1>
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon1.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn pink">Read More</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon2.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn blue">Read More</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon3.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn yellow">Read More</button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon4.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn green">Read More</button>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon5.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn purple">Read More</button>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon6.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn red">Read More</button>
+        </div>
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon1.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn pink">Read More</button>
+        </div>
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon1.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn pink">Read More</button>
+        </div>
+        <div class="card" onclick="openModal('DCA')">
+            <div class="card-icon">
+                <img src="icon1.png" alt="DCA Icon">
+            </div>
+            <h2>DCA (Diploma in Computer Applications)</h2>
+            <p>Learn MS Office, Typing, Internet, and more.</p>
+            <button class="btn pink">Read More</button>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Modal for course details -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <div class="modal-header" id="modal-header"></div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer">
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to open the modal and set course details
+    function openModal(course) {
+        var modal = document.getElementById("modal");
+        var header = document.getElementById("modal-header");
+        var body = document.getElementById("modal-body");
+
+        // Set the content based on the course selected
+        if (course === "DCA") {
+            header.textContent = "Diploma in Computer Applications (DCA)";
+            body.innerHTML = `
+                <ul>
+                    <li>MS Office</li>
+                    <li>English Typing</li>
+                    <li>Internet & Email</li>
+                    <li>Basic Computer Hardware</li>
+                    <li>Networking</li>
+                </ul>`;
+        }
+
+        // Show the modal
+        modal.style.display = "flex";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        var modal = document.getElementById("modal");
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
